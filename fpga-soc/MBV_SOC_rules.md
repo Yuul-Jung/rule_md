@@ -1,14 +1,47 @@
-# MBV SoC Web / C / RTL Addendum
-Applies together with [YJWS](../web/YJWS_v1.0.md).
+# 📘 MBV SoC C 언어·RTL 해설서 추가 규칙
 
-- Use Part 1 Chapter 7 as the editorial reference without overwriting verified technical content.
-- Keep Part 1 Chapter 11 known-good project untouched; work in separately named project copies.
-- Part 2 Chapter 1 contract: UART receives a complete line on Enter; commands are exactly `LED ON`, `LED OFF`, `STATUS`. Do not silently replace with one-byte commands.
-- Explain full C sources, `u8`, `u32`, AMD/Xilinx API, pointers, string parsing and memory-mapped register writes.
-- Explain full RTL sources, actual ports, FSM transitions, AXI handshakes, interrupts, reset/clock, testbench and timing.
-- Top is a wiring-only shell/wrapper; functional logic belongs in reusable controllers.
-- Diagrams must match code identifiers and real branches. Prefer Mermaid `flowchart LR` for editable sources, SVG for published pages. Verify render and no collisions.
-- Cross-check command strings, register maps, LED mapping, code, prose, tests and downloadable source links.
-- Label host compilation, RTL simulation, Vivado synthesis and physical board execution separately. UVM must not be claimed unless actually run.
-- Do not claim hardware success without evidence. Preserve existing working functionality and make only necessary fixes.
-- Published captures and files require privacy inspection; unverified or error screenshots must not be presented as final success.
+이 문서는 [범용 웹페이지 제작 표준](../web/YJWS_v1.0.md)에 추가로 적용합니다.
+
+## 1. 원본 및 프로젝트 관리
+
+- 제1부 제7장의 교재 편집·학습 흐름을 기준으로 개선합니다.
+- 제1부 제11장의 검증된 성공 프로젝트는 보존합니다.
+- 새 과제는 별도 프로젝트에서 작업하고, 정상 동작하는 기존 코드는 불필요하게 변경하지 않습니다.
+
+## 2. 제2부 01장 명령 규격
+
+- UART(범용 비동기 송수신)에서 문자열 한 줄을 수신하고 Enter(엔터, 입력 완료)를 누르면 실행합니다.
+- 명령 문자열은 정확히 `LED ON`, `LED OFF`, `STATUS`입니다.
+- 임의로 단일 문자 명령으로 변경하지 않습니다.
+- CPU가 AXI(고급 확장 인터페이스) 사용자 IP(사용자 정의 기능 블록)의 레지스터를 제어하고 실제 LED 출력 및 읽기값을 확인합니다.
+
+## 3. C 언어 해설서
+
+- 실제 전체 C 소스코드를 제공하고 짧고 정확한 주석을 넣습니다.
+- `u8`, `u32` 등의 자료형과 AMD/Xilinx 전용 함수를 설명합니다.
+- 문자열 수신·분석, 포인터, 비트 연산, 주소 계산, 레지스터 읽기·쓰기를 실제 코드와 연결합니다.
+- 프로그램 플로우차트는 실제 함수명·분기·반복·명령 문자열과 일치시킵니다.
+- CPU → AXI → RTL → 하드웨어 출력의 관계를 설명합니다.
+
+## 4. RTL 해설서
+
+- 전체 Verilog(베릴로그, 하드웨어 기술 언어) RTL(레지스터 전송 수준) 코드를 제공하고 동작을 설명합니다.
+- 실제 모듈명, 포트, 내부 신호, FSM(유한상태머신), 클록·리셋, AXI 핸드셰이크, 인터럽트, 타이밍을 설명합니다.
+- Top Module(최상위 모듈)은 배선 연결 중심으로 유지하고 기능 로직은 재사용 가능한 하위 모듈에 둡니다.
+- 테스트벤치 입력·출력과 실제 코드 동작을 대조합니다.
+
+## 5. 플로우차트·구조도
+
+- 편집용 Mermaid에서는 `flowchart LR`을 우선 사용합니다.
+- 배포 HTML에서는 SVG를 우선 사용하며 실제 렌더링을 확인합니다.
+- 실제 코드의 모듈·함수·신호·상태명과 도식의 명칭을 일치시킵니다.
+- 분기·반복·오류 경로를 누락하지 않고 글자·선 겹침을 제거합니다.
+
+## 6. 실습·검증·배포
+
+- Vivado(비바도, FPGA 설계 도구)와 Vitis(바이티스, 임베디드 소프트웨어 개발 도구)의 메뉴·설정·입력·결과를 단계별로 설명합니다.
+- C 호스트 컴파일, RTL 시뮬레이션, Vivado 합성, 실제 보드 실행을 서로 구분합니다.
+- UVM(범용 검증 방법론)을 실행하지 않았다면 UVM 검증이라고 주장하지 않습니다.
+- 명령 문자열·레지스터 맵·LED 핀·코드·해설·테스트·다운로드 링크의 정합성을 검사합니다.
+- 화면 캡처의 개인정보와 내부 정보를 공개 전에 검토합니다.
+- 실제로 수행하지 않은 검증은 **미검증**으로 표시합니다.
