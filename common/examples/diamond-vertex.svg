@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 600" role="img" aria-labelledby="title desc">
+<title id="title">SVG 꼭짓점 연결 예시</title><desc id="desc">조건 판단 마름모의 오른쪽 꼭짓점에서 예, 아래쪽 꼭짓점에서 아니요 분기</desc>
+<rect x="12" y="12" width="856" height="576" rx="24" fill="#fafafa" stroke="#dedede" stroke-width="2"/>
+<text x="440" y="68" text-anchor="middle" font-family="sans-serif" font-size="32" fill="#171717">SVG 꼭짓점 연결 예시</text>
+<polygon points="430,140 630,320 430,500 230,320" fill="#e5f4ea" stroke="#218456" stroke-width="5" stroke-linejoin="round"/>
+<text x="430" y="332" text-anchor="middle" font-family="sans-serif" font-size="34" fill="#155e3b">조건 판단</text>
+<path d="M630 320 H780" fill="none" stroke="#218456" stroke-width="5"/>
+<path d="M430 500 V555" fill="none" stroke="#218456" stroke-width="5"/>
+<text x="694" y="302" font-family="sans-serif" font-size="28" fill="#161616">예</text>
+<text x="453" y="545" font-family="sans-serif" font-size="28" fill="#161616">아니요</text>
+</svg>
