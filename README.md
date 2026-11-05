@@ -1,21 +1,37 @@
-# Yuul-Jung Rules
+# 📘 Yuul-Jung 공통 제작 규칙 저장소
 
-Reusable, versioned authoring standards for web pages, technical documentation, code explanations and diagrams.
+이 저장소는 웹페이지, 기술문서, 소스코드 해설서, 플로우차트 등 여러 프로젝트에서 재사용할 **공통 제작·검증 규칙**을 관리합니다.
 
-## Start here
+## 1. 주요 문서
 
-- [Universal Web Standard v1.0](web/YJWS_v1.0.md)
-- [Working HTML template](web/template/index.html)
-- [MBV SoC-specific addendum](fpga-soc/MBV_SOC_rules.md)
+| 문서 | 설명 |
+|---|---|
+| [범용 웹페이지 제작 표준 v1.0](web/YJWS_v1.0.md) | 모든 웹페이지에 적용하는 디자인·구조·테마·접근성·검증 기준 |
+| [공통 웹페이지 예제](web/template/index.html) | 전체 화면, 밝은 테마 기본, 어두운 테마 선택, 좌우 목차 접기 기능을 구현한 HTML 예제 |
+| [MBV SoC 전용 규칙](fpga-soc/MBV_SOC_rules.md) | MicroBlaze V SoC C 언어·RTL 해설서와 실습자료의 기술적 작성 기준 |
 
-## Precedence
+## 2. 규칙 적용 우선순위
 
-Safety/privacy and verified facts > universal web core > layout profile > domain-specific presentation. Domain-specific technical contracts (actual code, commands, register map) must not be overridden by appearance rules.
+1. 보안·개인정보 보호 및 실제 검증된 기술 사실
+2. 범용 웹페이지 제작 표준
+3. 웹페이지 유형별 배치 방식
+4. 분야별 전용 규칙
 
-## Release workflow
+실제 코드, UART 명령 문자열, 레지스터 맵과 같은 **기술적 사실은 디자인 규칙 때문에 변경하지 않습니다.**
 
-Draft → source alignment → adversarial review → render at desktop/tablet/mobile → accessibility/privacy/link check → publish. Mark unexecuted tests NOT VERIFIED.
+## 3. 작성·검증 절차
 
-## Repository policy
+원본 확인 → 구조 설계 → 콘텐츠 작성 → 적대적 검증 → 데스크톱·모바일 화면 확인 → 접근성·링크·개인정보 검사 → 공개
 
-Public repository: never publish credentials, personal information, private paths, or unreviewed screenshots. Use reviewable commits and preserve history.
+실행하지 않은 검증은 '미검증'으로 표시하며, 성공했다고 단정하지 않습니다.
+
+## 4. 공개 저장소 주의사항
+
+비밀번호, 토큰, 개인정보, 비공개 경로, 내부 문서 및 검토하지 않은 화면 캡처는 공개하지 않습니다.
+
+## 5. 언어 및 변경 관리
+
+- 모든 설명·제목·표·검증 보고는 **한글**로 작성합니다.
+- 영문 기술 용어는 처음 사용할 때 한글 의미를 병기합니다.
+- 코드 문법과 파일 경로는 기술적 호환성을 위해 원문 표기를 유지합니다.
+- 변경 이력을 남기고, 기존 정상 자료를 불필요하게 전면 재작성하지 않습니다.
