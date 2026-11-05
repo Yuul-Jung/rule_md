@@ -1,69 +1,97 @@
-# Yuul-Jung Web Standard (YJWS) v1.0
-Status: normative core; established 2026-11-05.
-Scope: learning sites, technical docs, reports, portals, dashboards, project introductions.
+# 📘 Yuul-Jung 범용 웹페이지 제작 표준 v1.0
 
-## 1. Separation and precedence
-- CORE: semantic HTML, full-width layout, default Light theme, optional Dark theme, responsive design, accessible navigation, privacy and release checks.
-- PROFILES: docs / article / dashboard / landing. Do not force a 3-column docs layout onto every site.
-- COMPONENTS: code, explanation, tables, SVG diagrams, screenshots, checklists, verification panels.
-- DOMAIN: source-specific requirements such as MBV SoC C/RTL, UART protocol, AXI register map and tool instructions.
-- Verified source and technical contracts always outrank illustrative UI examples. Preserve valid legacy content during restyling.
+**적용 범위:** 기술 교재, 실습 안내서, 연구보고서, 프로젝트 소개, 대시보드, 기술문서 포털 등 모든 웹페이지  
+**기준일:** 2026-11-05  
+**기본 원칙:** 하나의 공통 디자인 체계를 재사용하되 콘텐츠와 페이지 목적에 맞게 배치를 조정합니다.
 
-## 2. Layout
-- Fill the available viewport width; do not impose a narrow global max-width.
-- Desktop docs: collapsible left chapter navigation, flexible central content, collapsible right in-page table of contents.
-- On smaller screens, collapse sidebars without horizontal page overflow.
-- Text paragraphs may use readable line lengths; code, diagrams, tables and screenshots may use the entire available central width.
-- Use an 8px spacing scale and reusable tokens; avoid decorative excess.
-- Validate at 1920, 1366, 1024, 768, 390 and 320 CSS pixels.
+## 1. 규칙의 계층
 
-## 3. Theme
-- Initial theme is ALWAYS Light unless the user explicitly saved Dark.
-- Never default to operating-system dark preference.
-- Visible Light/Dark toggle and Alt+T keyboard shortcut (unless a browser shortcut conflicts).
-- Persist manual choice in localStorage when available; handle storage failures.
-- All code, tables, SVGs and diagrams must remain readable in both themes.
-- Print uses a readable Light presentation. Theme changes must not affect content semantics.
+- **공통 핵심 규칙:** HTML(웹 문서 구조), CSS(화면 스타일), JavaScript(동작 제어), 접근성, 보안, 반응형 화면
+- **페이지 유형:** 기술문서형, 일반 문서형, 대시보드형, 소개 페이지형
+- **공통 구성요소:** 목차, 코드, 표, 그림, 플로우차트, 검증 결과
+- **분야별 추가 규칙:** FPGA·SoC, Python, AI, 전기·전자 기술문서 등
 
-## 4. Navigation and accessibility
-- Use header, nav, main, aside and footer appropriately; one meaningful H1 per page.
-- Provide skip-to-content, visible keyboard focus, accessible labels and current navigation state.
-- Link in-page TOC to real section IDs; ensure anchor navigation accounts for sticky headers.
-- Interactive buttons must work via keyboard; never make decorative controls.
-- Use descriptive links, image alt text, sufficient contrast and reduced-motion support.
+모든 페이지에 3열 구조를 강제하지 않습니다. 실제 코드·기술 명세는 화면 디자인보다 우선합니다.
 
-## 5. Technical content
-- Preserve full source code where the task calls for it; identify language, file, version and validation status.
-- Use code + concise explanatory comments + directly adjacent explanation.
-- Explain unfamiliar types, APIs, macros, bit operations, pointer use and I/O mappings against real code.
-- Show conceptual diagrams separately from verified code-level diagrams.
-- SVG is preferred for precise HTML diagrams; verify labels, edges and actual rendering. No text/line overlap.
-- Keep source names, signals, states, command strings and register addresses consistent across text, tables and figures.
-- Use responsive scrolling for large tables and long code without clipping.
+## 2. 화면 배치
 
-## 6. Reliability, privacy and publishing
-- Source-of-truth hierarchy: verified source code and specifications → confirmed tests → explanatory prose → illustrative examples.
-- Distinguish PASS / FAIL / NOT VERIFIED / N/A. Never label a simulation-only result as hardware verified.
-- Review public pages and screenshots for names, addresses, tokens, internal paths, account details and metadata.
-- No third-party dependencies by default; document and justify any added dependency.
-- Verify links, asset paths, print output, responsive widths, keyboard use, theme persistence and JS-disabled fallback.
-- Make minimal changes to correct issues; record material changes and test evidence.
-- A visually attractive result is not sufficient without technical and privacy checks.
+- 브라우저 화면 너비를 최대한 활용합니다. 전체 본문에 불필요한 최대 너비 제한을 두지 않습니다.
+- 기술문서형은 **좌측 전체 목차 + 중앙 본문 + 우측 현재 페이지 목차**를 기본으로 합니다.
+- 좌우 목차는 접고 펼칠 수 있어야 합니다.
+- 일반 설명 문단은 지나치게 길어지지 않도록 읽기 편한 줄 길이를 적용할 수 있습니다.
+- 코드·구조도·표·화면 캡처는 중앙 본문 너비를 최대한 활용합니다.
+- 모바일에서는 목차를 자동으로 접고, 본문이 화면 밖으로 넘치지 않도록 합니다.
+- 1920·1366·1024·768·390·320픽셀 화면 폭에서 확인합니다.
 
-## 7. Template contract
-- Shared CSS variables, navigation components and theme logic must be reused.
-- Content must be separable from layout; new chapters should not fork the design system.
-- All sample commands and code in the template are explicitly illustrative until matched to source.
-- The repository's web/template/index.html is a demonstrator, not proof of real board validation.
+## 3. 화면 테마
 
-## 8. Release gate
-1. Identify actual source and target audience.
-2. Choose profile; render content with shared components.
-3. Check source-to-text-to-diagram consistency.
-4. Run responsive and accessibility checks.
-5. Run privacy and security inspection.
-6. Record PASS, FAIL or NOT VERIFIED per check.
-7. Publish only reviewed public-safe content.
+- **기본값은 Light(라이트, 밝은 화면)** 입니다.
+- 운영체제의 어두운 화면 설정이 있더라도 최초 접속 시 밝은 테마를 사용합니다.
+- 사용자가 Dark(다크, 어두운 화면)를 선택하면 브라우저에 저장하고 다음 접속에도 적용합니다.
+- 상단에 테마 전환 버튼을 제공하고, 가능한 환경에서 `Alt + T` 단축키를 지원합니다.
+- 브라우저 저장 기능이 제한되어도 페이지가 정상 동작해야 합니다.
+- 코드·표·SVG(벡터 그림)·플로우차트는 두 테마에서 모두 읽기 쉬워야 합니다.
+- 인쇄할 때는 밝은 배경을 사용합니다.
 
-## 9. MBV SoC extension
-See ../fpga-soc/MBV_SOC_rules.md. Keep UART line commands, actual C/RTL source, AXI mapping and board verification as domain contracts rather than generic web defaults.
+## 4. 문서 탐색 및 접근성
+
+- 제목은 논리적인 순서로 작성하고, 페이지의 대표 제목을 명확하게 지정합니다.
+- 전체 목차와 현재 페이지 목차는 실제 본문 위치로 이동해야 합니다.
+- 키보드만으로 메뉴와 버튼을 사용할 수 있어야 합니다.
+- 본문 바로가기, 키보드 초점 표시, 이미지 대체 설명을 제공합니다.
+- 글자와 배경의 대비를 충분히 확보합니다.
+- 움직임을 줄이도록 설정한 사용자의 환경을 존중합니다.
+- 접기 버튼과 테마 버튼은 장식이 아닌 실제 동작 기능이어야 합니다.
+
+## 5. 기술 콘텐츠 작성
+
+- 원본 소스가 중요한 문서에서는 전체 코드를 빠짐없이 제공하고 파일명·언어·검증 상태를 명시합니다.
+- 코드는 **전체 코드 → 짧은 주석 → 해당 코드의 역할과 동작 해설**로 구성합니다.
+- 생소한 자료형·함수·매크로·비트 연산·포인터·입출력 주소를 실제 코드와 연결해 설명합니다.
+- 실제 코드 기반 구조도와 교육용 개념도를 명확하게 구분합니다.
+- 도식의 모듈명·함수명·신호명·상태명은 실제 코드와 일치시킵니다.
+- HTML 교재에서는 SVG를 우선 활용하고, 편집 가능한 Mermaid(머메이드, 텍스트 기반 도식) 원본을 필요에 따라 함께 관리합니다.
+- 글자·도형·화살표가 겹치지 않도록 렌더링 결과를 확인합니다.
+- 긴 코드와 표는 잘리지 않도록 영역 내 스크롤을 제공합니다.
+
+## 6. 콘텐츠와 디자인 분리
+
+- 공통 스타일·탐색·테마 기능은 재사용 가능한 구성요소로 관리합니다.
+- 새 교재를 제작할 때마다 웹페이지 디자인을 새로 만들지 않습니다.
+- 디자인을 변경하더라도 기존 C·RTL·Python 코드와 기술 내용을 불필요하게 수정하지 않습니다.
+- 예시 코드와 검증된 실제 코드를 구분합니다.
+
+## 7. 보안·개인정보·성능
+
+- 공개 전에 계정, 이름, 비밀번호, 토큰, 비공개 경로, 화면 캡처 및 파일 메타데이터를 검사합니다.
+- 불필요한 외부 라이브러리를 추가하지 않습니다.
+- 외부 의존성이 필요하면 이유와 사용 범위를 명시합니다.
+- 화면 로딩과 탐색 기능은 가볍고 안정적으로 유지합니다.
+- JavaScript가 비활성화되어도 핵심 본문을 읽을 수 있어야 합니다.
+
+## 8. 적대적 검증
+
+다음 항목을 확인하고 오류가 있으면 최소 수정 후 다시 검증합니다.
+
+| 검증 항목 | 기준 |
+|---|---|
+| 기술 정합성 | 원본 코드·설명·표·도식이 일치하는가? |
+| 레이아웃 | 화면 폭을 활용하면서 가로 넘침이 없는가? |
+| 테마 | 최초 Light, 선택 Dark, 저장·복원이 정상인가? |
+| 도식 | 문자·연결선 겹침과 누락이 없는가? |
+| 접근성 | 키보드·초점·대체 설명·대비가 적절한가? |
+| 링크 | 내부 목차·외부 링크·다운로드가 정상인가? |
+| 공개 보안 | 개인정보·토큰·내부 정보가 없는가? |
+| 검증 증거 | 실제 수행한 시험과 미수행 시험을 구분했는가? |
+
+검증 결과는 **통과 / 실패 / 미검증 / 해당 없음**으로 구분합니다.
+
+## 9. 제작·배포 절차
+
+원본 확인 → 페이지 유형 선택 → 공통 템플릿 적용 → 기술 내용 작성 → 코드·도식 정합성 검증 → 화면 렌더링 → 보안·접근성 검사 → 배포
+
+실제 브라우저에서 확인하지 않은 기능은 검증 완료라고 표시하지 않습니다.
+
+## 10. 분야별 추가 규칙
+
+MBV SoC 관련 상세 규칙은 [MBV SoC C 언어·RTL 교재 규칙](../fpga-soc/MBV_SOC_rules.md)을 적용합니다. 해당 분야의 UART 명령, 레지스터 맵, RTL 구조, 실물 보드 검증 등은 범용 웹 디자인 규칙과 구분하여 관리합니다.
