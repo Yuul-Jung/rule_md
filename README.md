@@ -11,6 +11,7 @@
 | [범용 웹페이지 제작 표준 v1.0](web/YJWS_v1.0.md) | 모든 웹페이지에 적용하는 디자인·구조·테마·접근성·검증 기준 |
 | [공통 웹페이지 예제](web/template/index.html) | 전체 화면, 밝은 테마 기본, 어두운 테마 선택, 좌우 목차 접기 기능을 구현한 HTML 예제 |
 | [MBV SoC 전용 규칙](fpga-soc/MBV_SOC_rules.md) | MicroBlaze V SoC C 언어·RTL 해설서와 실습자료의 기술적 작성 기준 |
+| [GitHub 교육용 HTML 공통 표준](web/education-html/README.md) | AI 교재 등 온라인 강의의 동일 책장 표지·좌측 전체 장/절 탐색·버전 관리·HTML 생성 템플릿 및 다른 저장소 연동 안내 |
 
 ## 2. 규칙 적용 우선순위
 
