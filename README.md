@@ -8,16 +8,15 @@
 |---|---|
 | [공통 소스코드 작성·주석 표준](common/code-style-rules.md) | C·RTL·Python·웹 언어 들여쓰기, 주석, 변경 표시, 코드 박스 기준 |
 | [플로우차트·구조도 상세 작성 표준](common/flowchart-rules.md) | 코드·논리 정합성, 도형, 배치, SVG·Mermaid, 적대적 검증 기준 |
-| [범용 웹페이지 제작 표준 v1.0](web/YJWS_v1.0.md) | 모든 웹페이지에 적용하는 디자인·구조·테마·접근성·검증 기준 |
-| [공통 웹페이지 예제](web/template/index.html) | 전체 화면, 밝은 테마 기본, 어두운 테마 선택, 좌우 목차 접기 기능을 구현한 HTML 예제 |
+| [범용 웹페이지 예제](web/template/index.html) | 전체 화면·선택 다크 테마·양쪽 목차 예제(교육용 표준 템플릿과 구분) |
 | [MBV SoC 전용 규칙](fpga-soc/MBV_SOC_rules.md) | MicroBlaze V SoC C 언어·RTL 해설서와 실습자료의 기술적 작성 기준 |
-| [GitHub 교육용 HTML 공통 표준](web/education-html/README.md) | AI 교재 등 온라인 강의의 동일 책장 표지·좌측 전체 장/절 탐색·버전 관리·HTML 생성 템플릿 및 다른 저장소 연동 안내 |
+| [HTML 통합 표준](web/education-html/README.md) | 교육용 책장 이미지·목차·버전 관리와 일반 웹·대시보드의 접근성·테마·보안 공통 규칙 |
 
 ## 2. 규칙 적용 우선순위
 
 1. 보안·개인정보 보호 및 실제 검증된 기술 사실
-2. 범용 웹페이지 제작 표준
-3. 웹페이지 유형별 배치 방식
+2. [HTML 통합 표준](web/education-html/STANDARD.md)의 공통 규칙
+3. 교육형·범용 페이지별 배치 및 테마 규칙
 4. 분야별 전용 규칙
 
 실제 코드, UART 명령 문자열, 레지스터 맵과 같은 **기술적 사실은 디자인 규칙 때문에 변경하지 않습니다.**
