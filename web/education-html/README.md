@@ -4,7 +4,7 @@
 
 > **표준 규칙 원본:** [STANDARD.md](STANDARD.md)  
 > **다른 저장소 적용 방법:** [INTEGRATION.md](INTEGRATION.md)  
-> **범용 웹 표준:** [YJWS v1.0](../YJWS_v1.0.md)  
+> **범용 웹 공통 규칙:** [STANDARD.md 10절](STANDARD.md#10-범용-웹페이지-공통-규칙-기존-yjws-통합)  
 > **실제 적용 사례:** [ai-agent-engineering](https://github.com/Yuul-Jung/ai-agent-engineering)
 
 ## 1. 파일 구성
@@ -48,7 +48,7 @@ python build.py
 
 ## 4. 기존 표준과의 관계
 
-- 웹페이지 공통 기술·보안·접근성은 [YJWS v1.0](../YJWS_v1.0.md)을 따릅니다.
+- 웹페이지 공통 기술·보안·접근성은 [STANDARD.md 10절](STANDARD.md#10-범용-웹페이지-공통-규칙-기존-yjws-통합)에 통합되어 있습니다.
 - **교육용 배포 페이지에 한하여** 2열 좌측 목차, 컴팩트 책장 배너, 밝은 테마 기본 고정 등 교육형 외관을 `STANDARD.md`에 따라 적용합니다.
 - RTL·C·Python 코드 자체는 [공통 코드 규칙](../../common/code-style-rules.md), FPGA/SoC 교재의 기술 사실은 [분야별 규칙](../../fpga-soc/MBV_SOC_rules.md)이 우선합니다.
 - 다른 저장소의 원본이나 정상 기능은 새 표준 적용을 이유로 임의 삭제·재작성하지 않습니다.
