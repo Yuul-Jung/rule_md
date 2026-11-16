@@ -1,7 +1,7 @@
 # 📘 공통 소스코드 작성·표시·주석 표준 v1.0
 
 **적용 대상:** C, Verilog/SystemVerilog, Python, HTML, CSS, JavaScript, Shell 및 기타 교육·개발 소스코드  
-**적용 문서:** [범용 웹페이지 제작 표준](../web/YJWS_v1.0.md) · [플로우차트 작성 표준](flowchart-rules.md) · [MBV SoC 전용 규칙](../fpga-soc/MBV_SOC_rules.md)  
+**적용 문서:** [HTML 학습안내서 작성 표준](../web/education-html/STANDARD.md) · [플로우차트 작성 표준](flowchart-rules.md) · [MBV SoC 전용 규칙](../fpga-soc/MBV_SOC_rules.md)  
 **핵심 원칙:** 실행 정확성 → 원본 보존 → 일관된 들여쓰기 → 읽기 쉬운 주석 → 코드·해설·도식 일치
 
 ## 1. 원본 보존과 수정 범위
