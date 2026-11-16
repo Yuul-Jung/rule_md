@@ -11,6 +11,7 @@
 |----------|----------------|
 | HTML 학습안내서 제작·수정 | [`web/education-html/STANDARD.md`](web/education-html/STANDARD.md) |
 | 소스코드 작성 (C·Verilog·Python·JS) | [`code/code-development-rules.md`](code/code-development-rules.md) |
+| AI 코드 작성 판단 (Ponytail) | [`ponytail/AGENTS.md`](ponytail/AGENTS.md) |
 | VS Code 작업 환경 | [`vscode/vscode-rules.md`](vscode/vscode-rules.md) |
 | 플로우차트·구조도 제작 | [`common/flowchart-rules.md`](common/flowchart-rules.md) |
 | 코드 주석·들여쓰기·코드 박스 | [`common/code-style-rules.md`](common/code-style-rules.md) |
@@ -54,8 +55,10 @@ rule_md/
 ├── common/
 │   ├── code-style-rules.md             ← 공통 코드 작성·주석·코드 박스 표준
 │   └── flowchart-rules.md              ← 플로우차트·구조도 작성 표준
+├── ponytail/
+│   └── AGENTS.md                       ← Ponytail 결정 사다리 (MIT, DietrichGebert)
 ├── code/
-│   └── code-development-rules.md       ← ② AI 코드 개발·최적화·검증 규칙
+│   └── code-development-rules.md       ← ② AI 코드 개발·최적화·검증 규칙 (Ponytail 포함)
 ├── vscode/
 │   └── vscode-rules.md                 ← VS Code 작업 환경 규칙
 ├── web/
