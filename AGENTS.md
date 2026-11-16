@@ -12,6 +12,7 @@
 | HTML 학습안내서 제작·수정 | [`web/education-html/STANDARD.md`](web/education-html/STANDARD.md) |
 | 소스코드 작성 (C·Verilog·Python·JS) | [`code/code-development-rules.md`](code/code-development-rules.md) |
 | AI 코드 작성 판단 (Ponytail) | [`ponytail/AGENTS.md`](ponytail/AGENTS.md) |
+| 방법론 채택 정책·충돌 처리 | [`code/methodology-policy.md`](code/methodology-policy.md) |
 | VS Code 작업 환경 | [`vscode/vscode-rules.md`](vscode/vscode-rules.md) |
 | 플로우차트·구조도 제작 | [`common/flowchart-rules.md`](common/flowchart-rules.md) |
 | 코드 주석·들여쓰기·코드 박스 | [`common/code-style-rules.md`](common/code-style-rules.md) |
@@ -39,9 +40,12 @@
 ```
 [ ] 작업 유형에 맞는 규칙 파일을 읽었는가?
 [ ] HTML 학습안내서 작업이라면 STANDARD.md를 확인했는가?
+[ ] Ponytail 사다리: 이 코드가 정말 필요한가? (ponytail/AGENTS.md)
+[ ] 3개 이상 파일 변경이라면 계획을 먼저 작성했는가? (Plan-First)
 [ ] 기존 정상 동작 코드를 임의 변경하지 않는가?
 [ ] 검증하지 않은 변경은 '미검증'으로 표시할 준비가 됐는가?
 [ ] 원격 URL을 읽을 수 없을 때 추정 적용하지 않는가?
+[ ] 커밋은 하나의 논리적 목적만 담고 있는가? (Atomic Commits)
 ```
 
 ---
@@ -58,7 +62,8 @@ rule_md/
 ├── ponytail/
 │   └── AGENTS.md                       ← Ponytail 결정 사다리 (MIT, DietrichGebert)
 ├── code/
-│   └── code-development-rules.md       ← ② AI 코드 개발·최적화·검증 규칙 (Ponytail 포함)
+│   ├── code-development-rules.md       ← ② AI 코드 개발·최적화·검증 규칙 (Ponytail 포함)
+│   └── methodology-policy.md           ← 방법론 채택 정책·충돌 분석·우선순위
 ├── vscode/
 │   └── vscode-rules.md                 ← VS Code 작업 환경 규칙
 ├── web/
