@@ -13,6 +13,8 @@
 | 소스코드 작성 (C·Verilog·Python·JS) | [`code/code-development-rules.md`](code/code-development-rules.md) |
 | AI 코드 작성 판단 (Ponytail) | [`ponytail/AGENTS.md`](ponytail/AGENTS.md) |
 | 방법론 채택 정책·충돌 처리 | [`code/methodology-policy.md`](code/methodology-policy.md) |
+| AI 코딩 작업 방식 (Karpathy 4원칙) | [`karpathy/CLAUDE.md`](karpathy/CLAUDE.md) |
+| 에이전트 실패 패턴 체크 | [`context-engineering/anti-patterns.md`](context-engineering/anti-patterns.md) |
 | VS Code 작업 환경 | [`vscode/vscode-rules.md`](vscode/vscode-rules.md) |
 | 플로우차트·구조도 제작 | [`common/flowchart-rules.md`](common/flowchart-rules.md) |
 | 코드 주석·들여쓰기·코드 박스 | [`common/code-style-rules.md`](common/code-style-rules.md) |
@@ -63,6 +65,10 @@ rule_md/
 ├── code/
 │   ├── code-development-rules.md       ← ② AI 코드 개발·최적화·검증 규칙 (Ponytail 포함)
 │   └── methodology-policy.md           ← 방법론 채택 정책·충돌 분석·우선순위
+├── karpathy/
+│   └── CLAUDE.md                       ← Karpathy 4원칙 (Lean + Plan-First, forrestchang 포크)
+├── context-engineering/
+│   └── anti-patterns.md                ← AI 에이전트 실패 패턴 11종 (travisdrake 포크, CC BY 4.0)
 ├── vscode/
 │   └── vscode-rules.md                 ← VS Code 작업 환경 규칙
 ├── web/
