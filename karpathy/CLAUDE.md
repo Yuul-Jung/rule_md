@@ -1,6 +1,7 @@
 > Source: https://github.com/Yuul-Jung/andrej-karpathy-skills (fork of forrestchang/andrej-karpathy-skills)
 > Original: https://github.com/forrestchang/andrej-karpathy-skills
 > Based on: Andrej Karpathy's LLM coding observations (https://x.com/karpathy/status/2015883857489522876)
+> License: **No LICENSE file** in original repo — license unknown; use at own discretion
 > Copied: 2026-11-16
 
 # CLAUDE.md

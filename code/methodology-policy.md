@@ -59,8 +59,8 @@ Ponytail 원문의 "Lazy code without its check is unfinished"를 실무적으�
 3. **Surgical Changes** — 필요한 부분만 변경한다. 무관한 코드에 손대지 않는다.
 4. **Goal-Driven Execution** — 다단계 작업 전에 간단한 계획을 제시하고 검증 기준을 먼저 정의한다.
 
-**Ponytail과의 관계:** 🟢 완전 호환  
-"Simplicity First = 불필요한 코드 작성 금지"는 Ponytail "best code is the code never written"과 같은 방향. Ponytail이 "무엇을 작성할지"를 판단하고, Karpathy 4원칙이 "어떻게 작업할지"를 안내한다.
+**Ponytail과의 관계:** 🟡 부분 충돌 → Ponytail 우선  
+Simplicity First / Think Before Coding / Surgical Changes는 Ponytail과 같은 방향. 단, Goal-Driven Execution의 "Refactor X → Ensure tests pass before and after"는 Ponytail의 "Trivial changes need none"과 충돌. **충돌 시 Ponytail 우선**: trivial 리팩터링에는 테스트 불필요, non-trivial 로직(branch·loop·parser·보안)에만 테스트 적용.
 
 ---
 
@@ -91,7 +91,7 @@ Anti-Pattern은 "에이전트 프로세스 품질" 레이어, Ponytail은 "코�
 |--------|------------|----------------|----------|----------|
 | Atomic Commits | Git 워크플로 | 코드 작성 판단 | 🟢 없음 | 병렬 적용 |
 | Code + Proof | 검증 절차 | 테스트 필요성 판단 | 🟢 없음 | Ponytail 확장 |
-| Karpathy 4원칙 | 작업 방식·계획 | 코드 최소화 판단 | 🟢 없음 | 보완 (같은 방향) |
+| Karpathy 4원칙 | 작업 방식·계획 | 코드 최소화 판단 | 🟡 부분 충돌 | Ponytail 우선 (Goal-Driven Execution 테스트 기준) |
 | Anti-Pattern Catalog | 에이전트 프로세스 품질 | 코드 최소화 판단 | 🟢 없음 | 병렬 적용 |
 
 ---
@@ -103,9 +103,10 @@ Anti-Pattern은 "에이전트 프로세스 품질" 레이어, Ponytail은 "코�
 ```
 1순위: ① HTML 학습안내서 STANDARD.md (확정·고정)
 2순위: Ponytail 결정 사다리 (이 코드가 필요한가?)
-3순위: code-development-rules.md + Karpathy 4원칙 (코드 품질·작업 방식)
+3순위: code-development-rules.md (코드 품질·검증)
+  3-1순위: Karpathy 4원칙 (작업 방식, Ponytail과 충돌 시 Ponytail 우선)
 4순위: Atomic Commits (커밋 시점)
-5순위: Anti-Pattern Catalog (프로세스 체크, 항상 병렬 적용)
+5순위: Anti-Pattern Catalog (복잡한 작업에서 프로세스 체크)
 ```
 
 ---
@@ -114,9 +115,9 @@ Anti-Pattern은 "에이전트 프로세스 품질" 레이어, Ponytail은 "코�
 
 | 항목 | 불채택 이유 |
 |------|------------|
-| Lean Rule Files (ETH Zurich arXiv 2602.11988) | 논문 내용이 "규칙 파일이 성능 향상에 도움이 안 됨"으로 불일치. → Karpathy 4원칙으로 대체 채택 |
-| Plan-First (freecodecamp) | 웹 기사로 원문 접근 불가. → Karpathy Goal-Driven Execution으로 대체 채택 |
-| Anti-Pattern Cataloguing (thepromptshelf.dev) | 웹 기사로 원문 접근 불가. → travisdrake/context-engineering으로 대체 채택 |
+| Lean Rule Files (ETH Zurich arXiv 2602.11988) | 논문 내용이 "규칙 파일이 성능 향상에 도움이 안 됨"으로 불일치. 별도로 Karpathy 4원칙을 채택 |
+| Plan-First (freecodecamp) | 웹 기사로 원문 접근 불가. 별도로 Karpathy Goal-Driven Execution을 채택 |
+| Anti-Pattern Cataloguing (thepromptshelf.dev) | 웹 기사로 원문 접근 불가. 별도로 travisdrake/context-engineering을 채택 |
 | Spec-Driven Development (전면 적용) | 과도한 사전 설계로 Ponytail 최소화 원칙과 충돌 가능 |
 | Context Engineering (전체 도구 체계) | 단일 개발자 환경에 과도함 |
 | Multi-agent AGENTS.md 동기화 | 단일 에이전트 환경에 불필요 |
